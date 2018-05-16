@@ -16,8 +16,6 @@ class User(models.Model):
     def __str__(self):
         return self.name+','+self.username
 
-
-
 class Book(models.Model):
 
     class Meta:
@@ -29,7 +27,8 @@ class Book(models.Model):
     author = models.CharField(max_length=100, verbose_name='作者')
     create_time = models.DateTimeField(auto_now_add=True,verbose_name='上架时间')
     image = models.ImageField(upload_to='books/image/',verbose_name='封面')
-    price = models.IntegerField(verbose_name='价格')
+    old_price = models.IntegerField(default=0, verbose_name='原价')
+    price = models.IntegerField(verbose_name='现价')
     count = models.IntegerField(verbose_name='库存')
     buy_count = models.IntegerField(default=0, verbose_name='购买人数')
 

@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import User
+from .models import User, Book, Bill
 
 # Create your views here.
 def login(request):
@@ -14,7 +14,7 @@ def login(request):
             return render(request, 'login.html', ctx)
 
         request.session['user_id'] = str(user.id)
-        request.session['name'] = user.name
+        ctx['name'] = user.name
 
         return render(request, 'index.html', ctx)
 
@@ -22,5 +22,9 @@ def login(request):
 
 def index(request):
 
+    ctx = {}
+    ctx['newbooks'] = Book.objects.order_by('create_time')[::-1][0:3]
+    ctx['hotbooks'] = Book.objects.order_by('count')[::-1][0:3]
 
-    return render(request, 'index.html')
+
+    return render(request, 'index.html', ctx)

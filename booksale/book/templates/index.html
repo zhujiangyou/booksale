@@ -32,7 +32,11 @@
 <div class="top" id="item4">
     <div class="container clearfix">
         <ul class="clearfix fr">
-            <li><a href="#">登录</a></li>
+            {% if name %}
+            <li><a href="">欢迎您：{{name}}</a></li>
+            {% else %}
+            <li><a href="/user/login/">登录</a></li>
+            {% endif %}
             <li><a href="#">注册</a></li>
             <li><a href="#">个人中心</a></li>
             <li><a href="#" style="border: none">我的订单</a></li>
@@ -43,7 +47,7 @@
 <div class="header">
     <div class="container clearfix">
         <div class="logo fl">
-            <a href="#"><img src="images/logo4.png" alt=""/></a>
+            <a href="#"><img src="/static/images/logo4.png" alt=""/></a>
         </div>
         <div class="seacher fl">
             <form action="" method="post">
@@ -58,7 +62,7 @@
     <div class="clearfix">
         <div class="about fl">
             <h1>汉中新华书店</h1>
-            <img src="images/logo9.png" alt=""/>
+            <img src="/static/images/logo9.png" alt=""/>
             <p><span>汉中新华书店</span>是一个网上书城。力求打造网上最大的中文图书借换系统二手书交换系统力求打造是是网上最大的中文图书系统。终于可以好好买书了。</p>
         </div>
         <div class="focus fl">
@@ -99,34 +103,17 @@
     <div class="jiaocai clearfix" id="">
         <h1>最热图书<span></span></h1>
         <div class="book clearfix" style="margin: 0 auto;width: 1130px;">
+             {% for book in hotbooks %}
             <dl>
-                <dt><a href="#"><img src="/static/images/book.jpg" alt=""/></a></dt>
+            <dt><a href="#"><img src="{{book.image.url}}" alt=""/></a></dt>
                 <dd>
-                    <p><a href="#">福尔摩斯探案全集</a></p>
-                    <p>数量：99</p>
-                    <p><s>价格：￥25</s> ￥7</p>
+                <p><a href="#">{{book.name}}</a></p>
+                <p>数量：{{book.count}}</p>
+                <p><s>价格：￥25</s> ￥{{book.price}}</p>
                 </dd>
-
-            </dl>
-                        <dl>
-                <dt><a href="#"><img src="/static/images/book.jpg" alt=""/></a></dt>
-                <dd>
-                    <p><a href="#">福尔摩斯探案全集</a></p>
-                    <p>数量：99</p>
-                    <p><s>价格：￥25</s> ￥7</p>
-                </dd>
-
-            </dl>
-                        <dl>
-                <dt><a href="#"><img src="/static/images/book.jpg" alt=""/></a></dt>
-                <dd>
-                    <p><a href="#">福尔摩斯探案全集</a></p>
-                    <p>数量：99</p>
-                    <p><s>价格：￥25</s> ￥7</p>
-                </dd>
-
             </dl>
 
+               {% endfor %}
         </div>
 
     </div>
@@ -134,16 +121,18 @@
     <div class="jiaocai clearfix" id="">
     <h1>最新图书<span></span></h1>
     <div class="book clearfix" style="margin: 0 auto;width: 1130px;">
+
+        {% for book in newbooks %}
         <dl>
-            <dt><a href="#"><img src="/static/images/book.jpg" alt=""/></a></dt>
+            <dt><a href="#"><img src="{{book.image.url}}" alt=""/></a></dt>
             <dd>
-                <p><a href="#">福尔摩斯探案全集</a></p>
-                <p>数量：99</p>
-                <p><s>价格：￥25</s> ￥7</p>
+                <p><a href="#">{{book.name}}</a></p>
+                <p>数量：{{book.count}}</p>
+                <p><s>价格：￥25</s> ￥{{book.price}}</p>
             </dd>
 
         </dl>
-
+        {% endfor %}
     </div>
     </div>
 
