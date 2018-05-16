@@ -14,9 +14,6 @@ class User(models.Model):
     money = models.IntegerField(default=0, verbose_name='金额')
 
     def __str__(self):
-<<<<<<< HEAD
-        return self.name
-=======
         return self.name+','+self.username
 
 
@@ -30,14 +27,14 @@ class Book(models.Model):
     name = models.CharField(max_length=100, verbose_name='书名')
     brief = models.CharField(max_length=100, verbose_name='简介')
     author = models.CharField(max_length=100, verbose_name='作者')
+    create_time = models.DateTimeField(auto_now_add=True,verbose_name='上架时间')
     image = models.ImageField(upload_to='books/image/',verbose_name='封面')
     price = models.IntegerField(verbose_name='价格')
     count = models.IntegerField(verbose_name='库存')
+    buy_count = models.IntegerField(default=0, verbose_name='购买人数')
 
-    
     def __str__(self):
         return self.num+','+self.name
-
 
 class Bill(models.Model):
 
@@ -47,12 +44,12 @@ class Bill(models.Model):
     buyer = models.ForeignKey(User,on_delete=models.CASCADE,verbose_name='下单人')
     book = models.ForeignKey(Book,on_delete=models.CASCADE,verbose_name='购买书籍')
     create_time = models.DateTimeField(auto_now_add=True,verbose_name='下单时间')
-    update_time = models.DateTimeField(auto_now=True,verbose_name='批准时间')
-    status = models.IntegerField(default=0, choices=[(0, '未审批'), (1, '已批准')],verbose_name='订单状态')
+    status = models.IntegerField(default=0, choices=[(0, '未发货'), (1, '已发货')],verbose_name='订单状态')
+    address = models.CharField(default='',max_length=500, verbose_name='收获地址')
 
     def __str__(self):
         return self.User.name+','+self.Book.num+','+self.Book.name+','+self.Book.price
 
 
->>>>>>> origin/master
+
 
