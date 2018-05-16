@@ -1,0 +1,277 @@
+/*dede58.com 做最好的织梦整站模板下载网站*/
+
+
+.top{
+	height: 30px;
+	line-height: 30px;
+	background: #f7f7f7;
+	border-bottom: #eee solid 1px;
+}
+.top li{
+	float: left;
+}
+.top a{
+	padding: 0 15px;
+	border-right: 1px solid #666;
+}
+
+
+
+
+.header{
+	height: 100px;
+}
+.logo,.seacher,.mm{
+	margin-top: 20px;
+}
+.seacher{
+	margin-left: 100px;
+}
+.seacher input[type="text"]{
+	border: 3px solid #46B448;
+	padding: 10px;
+	font-size: 16px;
+	width: 350px;
+}
+.seacher input[type="submit"]{
+	color: white;
+	padding: 10px 20px;
+	border: 3px solid #46B448;
+	font-size: 16px;
+	background:#46B448 ;
+	cursor: pointer;
+}
+.seacher p a{
+	line-height: 25px;
+	color: #999;
+}
+.mm{
+	margin-left: 100px;
+}
+.mm a{
+	display: block;
+	padding: 0 10px;
+	width: 80px;
+	height: 40px;
+	border-radius: 15px;
+	border: #FF7F03 solid 1px;
+	line-height: 40px;
+	float: left;
+	margin-left: 15px;
+	font-family: 微软雅黑;
+	font-size: 18px;
+	background: #FFF4EE;
+	color: #FF7F03;
+	text-align: center;
+}
+.mm a:hover {
+	text-decoration: none;
+	background: #FEEADF;
+}
+
+
+
+.about,.focus,.help{
+	height: 300px; ;
+	border: 1px solid #dee8ef;
+	box-sizing: border-box;
+}
+.about{
+	width: 228px;
+}
+.about h1{
+	color: #7f9aab;
+	line-height: 40px;
+	padding-left: 10px;
+	font-size: 18px;
+}
+.about img{
+	width: 220px;
+	height: auto;
+}
+.about p{
+	text-indent: 2em;
+	font-size: 14px;
+	padding: 0 5px;
+	line-height: 22px;
+}
+.about p span{
+	color: #46B448;
+	font-size: 14px;
+}
+.focus{
+	margin: 0 5px;
+	padding: 5px;
+}
+.help{
+	width: 200px;
+}
+.help h2{
+	background: #f0f4f7;
+	line-height: 30px;
+	color: #7f9aab;
+	text-indent: 2em;
+	border-bottom: 1px solid #dee8ef;
+}
+.help ul{
+	line-height: 26px;
+	list-style-type: circle;
+	padding-left: 10px;
+}
+
+
+.jiaocai{
+	border: 1px solid #dee8ef;
+	border-radius: 20px 20px 0 0;
+	margin-top: 20px;
+}
+.jiaocai h1{
+	line-height: 47px;
+	background: url("../images/line.png") repeat-x;
+	padding-left: 40px;
+	font-size: 26px;
+	position: relative;
+	border-radius: 20px 20px 0 0;
+}
+.jiaocai h1 span{
+	position: absolute;
+	display: block;
+	left: 25px;
+	top: 12px;
+	width: 5px;
+	height: 26px;
+	background-color: red;
+}
+.list{
+	width: 200px;
+	text-align: center;
+}
+.list ul.one{
+	border-right: 1px solid #dee8ef;
+	border-bottom: 1px solid #dee8ef;
+	background-color: #fcfcfc;
+}
+.list ul.one li{
+	line-height: 40px;
+	color: #46B448;
+	font-size: 18px;
+	cursor: pointer;
+	position: relative;
+	height: 40px;
+}
+.list ul.one li:hover:after{
+	content: "";
+	position: absolute;
+	width: 5px;
+	height: 40px;
+	background-color: #fcfcfc;
+	right: -5px;
+	top: 0;
+}
+.list ul.one li:hover{
+	color: red;
+	border-top: 1px solid #46B448;
+	border-bottom: 1px solid #46B448;
+}
+ul.two{
+	position: absolute;
+	left: 199px;
+	top: -1px;
+	border: 1px solid #46B448;
+	width: 350px;
+	display: none;
+	background-color: #fcfcfc;
+}
+ul.two li{
+	float: left;
+	padding: 0 10px;
+}
+.list ul.two li:hover{
+	color: red;
+	border-top: none;
+	border-bottom: none;
+}
+.book{
+	width: 980px;
+}
+dl{
+	float: left;
+	margin: 14px;
+	width: 133px;
+}
+dl dt{
+	border: 1px solid #dee8ef;
+	padding: 10px;
+}
+dl dd{
+	text-align: center;
+	margin-top: 5px;
+}
+dl dd p:first-child a{
+	font-size: 14px;
+	color: #333;
+}
+dl dd p:nth-child(2){
+	font-size: 14px;
+	color: #999;
+}
+dl dd p:nth-child(3){
+	font-size: 16px;
+	color: red;
+}
+dl dd p:nth-child(3) s{
+	color: #999;
+	font-size: 12px;
+}
+
+.tab{
+	width: 900px;
+	margin: 0 auto;
+	margin-top: 30px;
+	border-bottom: 1px solid dodgerblue;
+}
+.tab li{
+	float: left;
+	width: 160px;
+	margin-left: 50px;
+	background-color: white;
+	text-align: center;
+	padding: 10px 0;
+	color:dodgerblue ;
+	cursor: pointer;
+}
+.tab li.on{
+	background-color: dodgerblue;
+	color: white;
+}
+
+
+
+
+
+
+
+.fixnav{
+	position: fixed;
+	right: 20px;
+	top: 50%;
+	margin-top: -182px;
+}
+.fixnav li{
+	width: 70px;
+	height: 70px;
+	background-color: #c2c2c2;
+	margin-top: 5px;
+	line-height: 70px;
+	text-align: center;
+}
+.fixnav li a{
+	color: white;
+	display: block;
+	height: 70px;
+	width: 70px;
+}
+.fixnav li a:hover{
+	background-color: red;
+	text-decoration: none;
+}

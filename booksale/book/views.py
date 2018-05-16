@@ -19,3 +19,8 @@ def login(request):
         return render(request, 'index.html', ctx)
 
     return render(request, 'login.html', ctx)
+
+def index(request):
+
+
+    return render(request, 'index.html')
