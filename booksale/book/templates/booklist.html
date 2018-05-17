@@ -48,7 +48,7 @@
 <div class="header">
     <div class="container clearfix">
         <div class="logo fl">
-            <a href="#"><img style="height: 100px;" src="/static/images/1.png" alt=""/></a>
+            <a href="#"><img style="height: 90px;" src="/static/images/1.png" alt=""/></a>
         </div>
         <div class="seacher fl">
             <form action="/search/" method="post">
@@ -60,52 +60,11 @@
 </div>
 
 <div class="mian container">
-    <img src="/static/images/notice.png" alt="" style="width: 1200px;height: auto;"/>
-    <div class="clearfix">
-        <div class="about fl">
-            <h1>汉中新华书店</h1>
-            <img style="height: 100px;" src="/static/images/1.png" alt=""/>
-            <p><span>汉中新华书店</span>是一个网上书城。力求打造网上最大的中文图书借换系统二手书交换系统力求打造是是网上最大的中文图书系统。终于可以好好买书了。</p>
-        </div>
-        <div class="focus fl">
-            <div id="picBOX"><!--焦点图盒子-->
-                <div class="loading"><img src="/static/js/mf-pattern/img/loading.gif" alt="请稍候..." /></div><!--载入画面(可删除)-->
-                <div class="pic"><!--内容列表(li数目可随意增减)-->
-                    <ul>
-                        <li><a href="#"><img src="/static/images/focus1.jpg" thumb="12" alt="便宜出售一本好书" text="卖书" /></a></li>
-                        <li><a href="#"><img src="/static/images/focus2.jpg" thumb="12" alt="便宜出售一本好书" text="卖书" /></a></li>
-                        <li><a href="#"><img src="/static/images/focus3.jpg" thumb="12" alt="便宜出售一本好书" text="卖书" /></a></li>
-                        <li><a href="#"><img src="/static/images/focus4.jpg" thumb="12" alt="便宜出售一本好书" text="卖书" /></a></li>
-                        <li><a href="#"><img src="/static/images/focus5.jpg" thumb="12" alt="便宜出售一本好书" text="卖书" /></a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <div class="help fr">
-            <h2>公告</h2>
-            <ul>
-                <!-- <li><a href="#">这是易书网最新公告1</a></li>
-                <li><a href="#">这是易书网最新公告2</a></li>
-                <li><a href="#">这是易书网最新公告3</a></li>
-                <li><a href="#">这是易书网最新公告4</a></li>
-                <li><a href="#">这是易书网最新公告5</a></li> -->
-            </ul>
-            <h2>新手帮助</h2>
-            <ul>
-          <!--       <li><a href="#">这是易书网帮助1</a></li>
-                <li><a href="#">这是易书网帮助2</a></li>
-                <li><a href="#">这是易书网帮助3</a></li>
-                <li><a href="#">这是易书网帮助4</a></li> -->
-            </ul>
-        </div>
-    </div>
-
-    </div>
 
     <div class="jiaocai clearfix" id="">
-        <h1>最热图书<span></span></h1>
+        <h1>图书列表<span></span></h1>
         <div class="book clearfix" style="margin: 0 auto;width: 1130px;">
-             {% for book in hotbooks %}
+             {% for book in books %}
             <dl>
             <dt><a href="#"><img src="{{book.image.url}}" alt=""/></a></dt>
                 <dd>
@@ -120,29 +79,13 @@
 
     </div>
 
-    <div class="jiaocai clearfix" id="">
-    <h1>最新图书<span></span></h1>
-    <div class="book clearfix" style="margin: 0 auto;width: 1130px;">
 
-        {% for book in newbooks %}
-        <dl>
-            <dt><a href="#"><img src="{{book.image.url}}" alt=""/></a></dt>
-            <dd>
-                <p><a href="#">{{book.name}}</a></p>
-                <p>数量：{{book.count}}</p>
-                <p><s>价格：￥{{book.old_price}}</s> ￥{{book.price}}</p>
-            </dd>
-
-        </dl>
-        {% endfor %}
-    </div>
-    </div>
 
 </div>
 <div class="foot">
     <div class="container">
-
-       <!--  <div class="zhinan">
+<!--
+        <div class="zhinan">
             <ul class="clearfix">
                 <li class="item-li">购书指南
                     <ul>
@@ -179,8 +122,8 @@
                     </ul>
                 </li>
             </ul>
-        </div> -->
-        <div class="line"></div>
+        </div>
+        <div class="line"></div> -->
 
         <div class="bottom">
             <p>友情链接：<a href="#">汉中新华书店</a>&nbsp;&nbsp;<a href="#">新华书店</a></p>
