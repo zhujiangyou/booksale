@@ -31,9 +31,7 @@ urlpatterns = [
     path('notice/detail/', book_views.notice_detail),
     path('book/fenlei/', book_views.book_fenlei),
     path('type/detail/', book_views.type_detail),
-
-
-
+    path('book/detail/', book_views.book_detail),
 
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

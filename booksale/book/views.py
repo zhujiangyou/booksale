@@ -101,3 +101,10 @@ def type_detail(request):
     ctx['books'] = Book.objects.filter(book_type=book_type)
 
     return render(request, 'type_book.html', ctx)
+
+def book_detail(request):
+    ctx = {}
+
+    id = request.GET.get('id', '')
+    ctx['book'] = Book.objects.filter(id=id).first()
+    return render(request, 'book_detail.html', ctx)

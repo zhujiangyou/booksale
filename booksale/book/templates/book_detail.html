@@ -112,12 +112,19 @@
             </li>
 
             <li >
-                <a href="/all/notice/"><span style="font-size: 20px;color: white;">公告列表</span></a>
+                <a href=""><span style="font-size: 20px;color: white;">公告列表</span></a>
             </li>
-
             <li >
                 <a href="/book/fenlei/"><span style="font-size: 20px;color: white;">图书分类</span></a>
             </li>
+
+           <!--  <li >
+                <a href="/up/banji/user/"><span style="font-size: 20px;color: white;">首页</span></a>
+            </li>
+
+            <li >
+                <a href="/super/teacher/message"><span style="font-size: 20px;color: white;">首页</span></a>
+            </li> -->
 
         </ul>
     </div>
@@ -127,21 +134,28 @@
 <div class="mian container">
 
     <div class="jiaocai clearfix" id="">
-        <h1>图书列表-------{{book_type}}<span></span></h1>
-        <div class="book clearfix" style="margin: 0 auto;width: 1130px;">
-             {% for book in books %}
+        <h1>图书详情<span></span></h1>
 
-            <dl>
-            <dt><a href="/book/detail/?id={{book.id}}"><img style="width: 110px;height: 180px;" src="{{book.image.url}}" alt=""/></a></dt>
-                <dd>
-                <p><a href="/book/detail/?id={{book.id}}">{{book.name}}</a></p>
-                <p>数量：{{book.count}}</p>
-                <p><s>价格：￥{{book.old_price}}</s> ￥{{book.price}}</p>
-                </dd>
-            </dl>
 
-               {% endfor %}
-        </div>
+            <div style="width: 150px;height: 200px; float: left; margin-left: 10px;">
+            <img style="width: 150px;height: 200px;" src="{{book.image.url}}">
+            <button style="margin-left: 47px;margin-top: 5px;" type="button" class="btn btn-success">购买</button>
+            </div>
+
+            <div style="margin-left: 200px;">
+
+                <ul class="list-group">
+                    <li class="list-group-item">书名：{{book.name}}</li>
+                    <li class="list-group-item">作者：{{ book.author }}</li>
+                    <li class="list-group-item">简介：{{ book.brief }}</li>
+                    <li class="list-group-item">书号：{{ book.num }}</li>
+                    <li class="list-group-item">价格：{{ book.price }}</li>
+                    <li class="list-group-item">图书类型：{{ book.book_type }}</li>
+                </ul>
+
+            </div>
+
+</div>
 
     </div>
 
