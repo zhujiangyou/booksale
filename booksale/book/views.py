@@ -55,3 +55,38 @@ def allbook(request):
     ctx['books'] = Book.objects.all()
 
     return render(request, 'allbook.html', ctx)
+
+
+def register(request):
+    ctx = {}
+    if request.method == 'POST':
+        ctx['name'] = name = request.POST.get('name','')
+        ctx['username'] = username = request.POST.get('username','')
+        ctx['password'] = password = request.POST.get('password','')
+        ctx['address'] = address = request.POST.get('address','')
+        ctx['phone'] = phone = request.POST.get('phone','')
+        if not name:
+            ctx['error'] = error = '名字不能为空'
+            return render(request,'register.html',ctx)
+        if not username:
+            ctx['error'] = error = '公司不能为空'
+            return render(request,'register.html',ctx)
+        if not password:
+            ctx['error'] = error = '电话不能为空'
+            return render(request,'register.html',ctx)
+        if not address:
+            ctx['error'] = error = '备注不能为空'
+            return render(request,'register.html',ctx)
+        if not phone:
+            ctx['error'] = error = '备注不能为空'
+            return render(request,'register.html',ctx)
+        user = User()
+        user.name = name
+        user.username = username
+        user.password = password
+        user.address = address
+        user.phone = phone
+        user.save()
+        ctx['message'] = message = '注册成功'
+
+    return render(request,'register.html',ctx)

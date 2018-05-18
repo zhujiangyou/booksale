@@ -28,6 +28,8 @@ urlpatterns = [
     path('search/', book_views.search),
     path('all/book/', book_views.search),
 
+    path('register/',book_views.register),
+
 
 
 
