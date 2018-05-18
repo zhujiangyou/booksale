@@ -135,19 +135,23 @@
 <div class="mian container">
 
     <div class="jiaocai clearfix" id="">
-        <h1>图书列表<span></span></h1>
+        <h1>图书分类<span></span></h1>
         <div class="book clearfix" style="margin: 0 auto;width: 1130px;">
-             {% for book in books %}
-            <dl>
-            <dt><a href="#"><img style="width: 110px;height: 180px;" src="{{book.image.url}}" alt=""/></a></dt>
-                <dd>
-                <p><a href="#">{{book.name}}</a></p>
-                <p>数量：{{book.count}}</p>
-                <p><s>价格：￥{{book.old_price}}</s> ￥{{book.price}}</p>
-                </dd>
-            </dl>
 
-               {% endfor %}
+              <table class="table table-condensed">
+                  <thead>
+                    <tr>
+                      <th>类型</th>
+                  </thead>
+                  <tbody>
+                    {% for n in s %}
+                    <tr>
+                      <td style="font-size: 17px;"><a style="font-size: 17px;" href="/type/detail/?type={{n}}">{{n}}</a></td>
+                  </tr>
+                     {% endfor %}
+                  </tbody>
+                </table>
+
         </div>
 
     </div>

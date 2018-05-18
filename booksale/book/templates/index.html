@@ -108,18 +108,18 @@
             </li>
 
             <li >
-                <a href="/all/books/"><span style="font-size: 20px;color: white;">全部图书</span></a>
+                <a href="/all/book/"><span style="font-size: 20px;color: white;">全部图书</span></a>
             </li>
 
             <li >
-                <a href="/all/notice"><span style="font-size: 20px;color: white;">公告列表</span></a>
-            </li>
-
-           <!--  <li >
-                <a href="/up/banji/user/"><span style="font-size: 20px;color: white;">首页</span></a>
+                <a href="/all/notice/"><span style="font-size: 20px;color: white;">公告列表</span></a>
             </li>
 
             <li >
+                <a href="/book/fenlei/"><span style="font-size: 20px;color: white;">图书分类</span></a>
+            </li>
+
+ <!--            <li >
                 <a href="/super/teacher/message"><span style="font-size: 20px;color: white;">首页</span></a>
             </li> -->
 
@@ -153,11 +153,10 @@
         <div class="help fr" style="width: 176px;">
             <h2>公告</h2>
             <ul>
-                <li><a href="#">这是易书网最新公告1</a></li>
-                <li><a href="#">这是易书网最新公告2</a></li>
-                <li><a href="#">这是易书网最新公告3</a></li>
-                <li><a href="#">这是易书网最新公告4</a></li>
-                <li><a href="#">这是易书网最新公告5</a></li>
+                {% for i in notices %}
+                <li><a href="/notice/detail/?id={{i.id}}">{{i.title}}</a></li>
+                {% endfor %}
+
             </ul>
 
     </div>
