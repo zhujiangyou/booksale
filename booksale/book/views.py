@@ -141,3 +141,38 @@ def book_detail(request):
     id = request.GET.get('id', '')
     ctx['book'] = Book.objects.filter(id=id).first()
     return render(request, 'book_detail.html', ctx)
+
+def buy(request):
+    ctx = {}
+    ctx['book_name'] = book_name = request.POST.get('book_name','')
+    ctx['num'] = num = request.POST.get('num','')
+    ctx['price'] = price = request.POST.get('price','')
+    ctx['book_type'] = book_type = request.POST.get('book_type','')
+
+
+    ctx['name'] = name = request.POST.get('name','')
+
+    user = User.objects.filter(name=name).first()
+    book = Book.objects.filter(num=num).first()
+    if user.money > book.price:
+        bill = Bill()
+        bill.buyer = user
+        bill.book = book
+        bill.save()
+        ctx['message'] = message = '购买成功'
+    else:
+        ctx['error'] = error = '金额不足'
+
+    print(ctx)
+    return render(request, 'book_detail.html', ctx)
+
+
+def personal(request):
+    ctx = {}
+    
+    return render(request, 'personal.html', ctx)
+
+def bills(request):
+    ctx = {}
+    
+    return render(request, 'bills.html', ctx)

@@ -71,7 +71,7 @@
             <li><a href="/user/logout/">退出</a></li>
             {% else %}
             <li><a href="/user/login/">登录</a></li>
-            <li><a href="#">注册</a></li>
+            <li><a href="/register/">注册</a></li>
             {% endif %}
             <li><a href="#">个人中心</a></li>
             <li><a href="#" style="border: none">我的订单</a></li>
@@ -138,8 +138,21 @@
 
 
             <div style="width: 150px;height: 200px; float: left; margin-left: 10px;">
-            <img style="width: 150px;height: 200px;" src="{{book.image.url}}">
-            <button style="margin-left: 47px;margin-top: 5px;" type="button" class="btn btn-success">购买</button>
+                <img style="width: 150px;height: 200px;" src="{{book.image.url}}">
+                {% if book.count > 0 %}
+                <form action="/buy/" method="post">
+                    {% csrf_token %}
+                    <input type="hidden" name="book_name" value="{{book.name}}">
+                    <input type="hidden" name="num" value="{{book.num}}">
+                    <input type="hidden" name="price" value="{{book.price}}">
+                    <input type="hidden" name="book_type" value="{{book.book_type}}">
+                    <input type="hidden" name="name" value="{{name}}">
+                    <input style="margin-left: 47px;margin-top: 5px;" type="submit" class="btn btn-success" value="购买">
+                    <!-- <button style="margin-left: 47px;margin-top: 5px;" type="button" class="btn btn-success">购买</button> -->
+                </form>
+                {% else %}
+                <input type="text" style="font-size: 15px;color: green;" placeholder="商家暂无存货,敬请期待...">
+                {% endif %}
             </div>
 
             <div style="margin-left: 200px;">

@@ -28,6 +28,10 @@ urlpatterns = [
     path('search/', book_views.search),
 
     path('register/',book_views.register),
+    path('buy/',book_views.buy),
+    path('personal/',book_views.personal),
+    path('bills/',book_views.bills),
+
 
 
 
