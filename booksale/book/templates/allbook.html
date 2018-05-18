@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/static/css/public.css"/>
+    <link rel="stylesheet" href="/static/css/index.css"/>
+    <link rel="stylesheet" href="/static/css/swiper3.07.min.css"/>
+
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" >
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+        $(function(){
+
+            $('#ulid').on('click','li',function(){
+                $(this).addClass('active');
+            });
+        });
+
+    </script>
+
+
+    <script src="/static/js/jquery-1.11.2.min.js"></script>
+    <script src="/static/js/myfocus-2.0.1.min.js"></script>
+    <script src="/static/js/main.js"></script>
+    <script>
+        myFocus.set({
+            id:'picBOX',//焦点图盒子ID
+            pattern:'mF_liquid',//风格应用的名称
+            time:3,//切换时间间隔(秒)
+            trigger:'click',//触发切换模式:'click'(点击)/'mouseover'(悬停)
+            width:750,//设置图片区域宽度(像素)
+            height:290,//设置图片区域高度(像素)
+            txtHeight:'default'//文字层高度设置(像素),'default'为默认高度，0为隐藏
+        });
+    </script>
+        <script type="text/javascript">
+        $(function(){
+
+            $('#ulid').on('click','li',function(){
+                $(this).addClass('active');
+            });
+        });
+
+    </script>
+    <style>
+        .swiper-container {
+            width: 1100px;
+            height: 300px;
+            margin: 0 auto;
+        }
+    </style>
+        <style type="text/css">
+
+    .navbar-default {
+        background-color: #34b457;
+        height: 60px;
+        /*border-color: #262626;*/
+    }
+
+    </style>
+
+    <title>Document</title>
+</head>
+<body>
+<div class="top" id="item4">
+    <div class="container clearfix">
+        <ul class="clearfix fr">
+            {% if name %}
+            <li>欢迎您：{{name}}</li>
+            <li><a href="/user/logout/">退出</a></li>
+            {% else %}
+            <li><a href="/user/login/">登录</a></li>
+            <li><a href="#">注册</a></li>
+            {% endif %}
+            <li><a href="#">个人中心</a></li>
+            <li><a href="#" style="border: none">我的订单</a></li>
+        </ul>
+    </div>
+</div>
+
+
+
+
+<div class="header">
+    <div class="container clearfix">
+        <div class="logo fl">
+            <a href="#"><img style="height: 80px;" src="/static/images/1.png" alt=""/></a>
+        </div>
+        <div class="seacher fl">
+            <form action="/search/" method="post">
+                {% csrf_token %}
+                <input type="text" name="q" placeholder="小伙伴，你想找什么?"/><input type="submit" value="搜 索"/>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="mian container">
+
+    <nav class="navbar navbar-default">
+
+    <div class="collapse navbar-collapse">
+        <ul id="ulid" class="nav navbar-nav ">
+
+            <li>
+                <a href="/index"><span style="font-size: 20px;color: white;">首页</span></a>
+            </li>
+
+            <li >
+                <a href="/all/book/"><span style="font-size: 20px;color: white;">全部图书</span></a>
+            </li>
+
+            <li >
+                <a href="/all/notice/"><span style="font-size: 20px;color: white;">公告列表</span></a>
+            </li>
+
+
+            <li >
+                <a href="/book/fenlei/"><span style="font-size: 20px;color: white;">图书分类</span></a>
+            </li>
+           <!--  <li >
+                <a href="/up/banji/user/"><span style="font-size: 20px;color: white;">首页</span></a>
+            </li>
+
+            <li >
+                <a href="/super/teacher/message"><span style="font-size: 20px;color: white;">首页</span></a>
+            </li> -->
+
+        </ul>
+    </div>
+</nav>
+
+
+<div class="mian container">
+
+    <div class="jiaocai clearfix" id="">
+        <h1>图书列表<span></span></h1>
+        <div class="book clearfix" style="margin: 0 auto;width: 1130px;">
+             {% for book in books %}
+            <dl>
+            <dt><a href="/book/detail/?id={{book.id}}"><img style="width: 110px;height: 180px;" src="{{book.image.url}}" alt=""/></a></dt>
+                <dd>
+                <p><a href="/book/detail/?id={{book.id}}">{{book.name}}</a></p>
+                <p>数量：{{book.count}}</p>
+                <p><s>价格：￥{{book.old_price}}</s> ￥{{book.price}}</p>
+                </dd>
+            </dl>
+
+               {% endfor %}
+        </div>
+
+    </div>
+
+
+
+</div>
+<div class="foot">
+    <div class="container">
+
+        <div class="zhinan">
+            <ul class="clearfix">
+                <li class="item-li">购书指南
+                    <ul>
+                        <li><a href="#">会员有哪些优惠？</a></li>
+                        <li><a href="#">多长时间可以送达？</a></li>
+                    </ul>
+                </li>
+                <li class="item-li">配送与支持
+                    <ul>
+                        <li><a href="#">我们的配送方式。</a></li>
+                        <li><a href="#">配送费说明</a></li>
+                        <li><a href="#">我们的配送范围。</a></li>
+                        <li><a href="#">发货方式有哪些？</a></li>
+                    </ul>
+                </li>
+                <li class="item-li">支付方式
+                    <ul>
+                        <li><a href="#">支付方式有哪些？</a></li>
+                        <li><a href="#">购书如何支付</a></li>
+                        <li><a href="#">支付步骤</a></li>
+                    </ul>
+                </li>
+                <li class="item-li">售后服务
+                    <ul>
+                        <li><a href="#">退换货注意事项</a></li>
+                        <li><a href="#">不退换货说明</a></li>
+                        <li><a href="#">售后服务流程</a></li>
+                    </ul>
+                </li>
+                <li class="item-li" style="margin: 0">帮助信息
+                    <ul>
+                        <li><a href="#">二手书说明</a></li>
+                        <li><a href="#">隐私安全</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <div class="line"></div>
+
+        <div class="bottom">
+            <p>友情链接：<a href="#">汉中新华书店</a>&nbsp;&nbsp;<a href="#">新华书店</a></p>
+            <p>本站所有信息均为用户自由发布，本站不对信息的真实性负任何责任，交易时请注意识别信息的真假如有网站内容侵害了您的权益请联系我们删除，举报电话：110</p>
+            <p> &nbsp;&nbsp;商务QQ:584845663 &nbsp;&nbsp;邮箱：584845663@qq.com</p>
+        </div>
+    </div>
+</div>
+</body>
+</html>
