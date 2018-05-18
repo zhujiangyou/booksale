@@ -23,8 +23,8 @@ def login(request):
 
 def index(request):
     ctx = {}
-    ctx['newbooks'] = Book.objects.order_by('create_time')[::-1][0:3]
-    ctx['hotbooks'] = Book.objects.order_by('count')[::-1][0:3]
+    ctx['newbooks'] = Book.objects.order_by('create_time')[::-1][0:7]
+    ctx['hotbooks'] = Book.objects.order_by('count')[::-1][0:10]
     if 'user_id' in request.session:
         ctx['name'] = request.session['name']
 
@@ -46,3 +46,12 @@ def search(request):
 
 
         return render(request, 'booklist.html', ctx)
+
+def allbook(request):
+    ctx = {}
+    if 'user_id' in request.session:
+        ctx['name'] = request.session['name']
+
+    ctx['books'] = Book.objects.all()
+
+    return render(request, 'allbook.html', ctx)

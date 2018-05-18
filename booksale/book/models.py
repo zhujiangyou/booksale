@@ -14,7 +14,7 @@ class User(models.Model):
     money = models.IntegerField(default=0, verbose_name='金额')
 
     def __str__(self):
-        return self.name+','+self.username
+        return self.name
 
 class Book(models.Model):
 
@@ -33,7 +33,7 @@ class Book(models.Model):
     buy_count = models.IntegerField(default=0, verbose_name='购买人数')
 
     def __str__(self):
-        return self.num+','+self.name
+        return self.name
 
 class Bill(models.Model):
 
@@ -50,5 +50,11 @@ class Bill(models.Model):
         return self.User.name+','+self.Book.num+','+self.Book.name+','+self.Book.price
 
 
+class Notice(models.Model):
 
+    class Meta:
+        verbose_name_plural = verbose_name = "公告"
 
+    title = models.CharField(default='', max_length=300, verbose_name='标题')
+    content = models.CharField(default='', max_length=2000, verbose_name='内容')
+    create_time = models.DateTimeField(auto_now_add=True,verbose_name='创建时间')

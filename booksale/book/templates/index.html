@@ -5,6 +5,21 @@
     <link rel="stylesheet" href="/static/css/public.css"/>
     <link rel="stylesheet" href="/static/css/index.css"/>
     <link rel="stylesheet" href="/static/css/swiper3.07.min.css"/>
+
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" >
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+        $(function(){
+
+            $('#ulid').on('click','li',function(){
+                $(this).addClass('active');
+            });
+        });
+
+    </script>
+
+
     <script src="/static/js/jquery-1.11.2.min.js"></script>
     <script src="/static/js/myfocus-2.0.1.min.js"></script>
     <script src="/static/js/main.js"></script>
@@ -19,6 +34,15 @@
             txtHeight:'default'//文字层高度设置(像素),'default'为默认高度，0为隐藏
         });
     </script>
+        <script type="text/javascript">
+        $(function(){
+
+            $('#ulid').on('click','li',function(){
+                $(this).addClass('active');
+            });
+        });
+
+    </script>
     <style>
         .swiper-container {
             width: 1100px;
@@ -26,6 +50,16 @@
             margin: 0 auto;
         }
     </style>
+        <style type="text/css">
+
+    .navbar-default {
+        background-color: #34b457;
+        height: 60px;
+        /*border-color: #262626;*/
+    }
+
+    </style>
+
     <title>Document</title>
 </head>
 <body>
@@ -45,10 +79,13 @@
     </div>
 </div>
 
+
+
+
 <div class="header">
     <div class="container clearfix">
         <div class="logo fl">
-            <a href="#"><img style="height: 100px;" src="/static/images/1.png" alt=""/></a>
+            <a href="#"><img style="height: 80px;" src="/static/images/1.png" alt=""/></a>
         </div>
         <div class="seacher fl">
             <form action="/search/" method="post">
@@ -60,14 +97,46 @@
 </div>
 
 <div class="mian container">
-    <img src="/static/images/notice.png" alt="" style="width: 1200px;height: auto;"/>
+
+    <nav class="navbar navbar-default">
+
+    <div class="collapse navbar-collapse">
+        <ul id="ulid" class="nav navbar-nav ">
+
+            <li>
+                <a href="/index"><span style="font-size: 20px;color: white;">首页</span></a>
+            </li>
+
+            <li >
+                <a href="/all/books/"><span style="font-size: 20px;color: white;">全部图书</span></a>
+            </li>
+
+            <li >
+                <a href="/all/notice"><span style="font-size: 20px;color: white;">公告列表</span></a>
+            </li>
+
+           <!--  <li >
+                <a href="/up/banji/user/"><span style="font-size: 20px;color: white;">首页</span></a>
+            </li>
+
+            <li >
+                <a href="/super/teacher/message"><span style="font-size: 20px;color: white;">首页</span></a>
+            </li> -->
+
+        </ul>
+    </div>
+</nav>
+
+
+    <img  src="/static/images/notice.png" alt="" style="width: 1142px;height: auto;"/>
+
     <div class="clearfix">
-        <div class="about fl">
+        <div class="about fl" style="width: 200px;">
             <h1>汉中新华书店</h1>
-            <img style="height: 100px;" src="/static/images/1.png" alt=""/>
+            <img style="height: 100px;width: 189px;" src="/static/images/1.png" alt=""/>
             <p><span>汉中新华书店</span>是一个网上书城。力求打造网上最大的中文图书借换系统二手书交换系统力求打造是是网上最大的中文图书系统。终于可以好好买书了。</p>
         </div>
-        <div class="focus fl">
+        <div class="focus fl" style="width: 500px;">
             <div id="picBOX"><!--焦点图盒子-->
                 <div class="loading"><img src="/static/js/mf-pattern/img/loading.gif" alt="请稍候..." /></div><!--载入画面(可删除)-->
                 <div class="pic"><!--内容列表(li数目可随意增减)-->
@@ -81,43 +150,33 @@
                 </div>
             </div>
         </div>
-        <div class="help fr">
+        <div class="help fr" style="width: 176px;">
             <h2>公告</h2>
             <ul>
-                <!-- <li><a href="#">这是易书网最新公告1</a></li>
+                <li><a href="#">这是易书网最新公告1</a></li>
                 <li><a href="#">这是易书网最新公告2</a></li>
                 <li><a href="#">这是易书网最新公告3</a></li>
                 <li><a href="#">这是易书网最新公告4</a></li>
-                <li><a href="#">这是易书网最新公告5</a></li> -->
+                <li><a href="#">这是易书网最新公告5</a></li>
             </ul>
-            <h2>新手帮助</h2>
-            <ul>
-          <!--       <li><a href="#">这是易书网帮助1</a></li>
-                <li><a href="#">这是易书网帮助2</a></li>
-                <li><a href="#">这是易书网帮助3</a></li>
-                <li><a href="#">这是易书网帮助4</a></li> -->
-            </ul>
-        </div>
-    </div>
 
     </div>
 
+    </div>
     <div class="jiaocai clearfix" id="">
         <h1>最热图书<span></span></h1>
         <div class="book clearfix" style="margin: 0 auto;width: 1130px;">
              {% for book in hotbooks %}
             <dl>
-            <dt><a href="#"><img src="{{book.image.url}}" alt=""/></a></dt>
+            <dt><a href="#"><img style="width: 110px;height: 180px;"  src="{{book.image.url}}" alt=""/></a></dt>
                 <dd>
                 <p><a href="#">{{book.name}}</a></p>
                 <p>数量：{{book.count}}</p>
                 <p><s>价格：￥{{book.old_price}}</s> ￥{{book.price}}</p>
                 </dd>
             </dl>
-
                {% endfor %}
         </div>
-
     </div>
 
     <div class="jiaocai clearfix" id="">
@@ -126,7 +185,7 @@
 
         {% for book in newbooks %}
         <dl>
-            <dt><a href="#"><img src="{{book.image.url}}" alt=""/></a></dt>
+            <dt><a href="#"><img style="width: 110px;height: 180px;" src="{{book.image.url}}" alt=""/></a></dt>
             <dd>
                 <p><a href="#">{{book.name}}</a></p>
                 <p>数量：{{book.count}}</p>
@@ -142,12 +201,12 @@
 <div class="foot">
     <div class="container">
 
-       <!--  <div class="zhinan">
+        <div class="zhinan">
             <ul class="clearfix">
                 <li class="item-li">购书指南
                     <ul>
-                        <li><a href="#">会员有哪些优惠？</a></li>
-                        <li><a href="#">多长时间可以送达？</a></li>
+                        <li><a href="">会员有哪些优惠？</a></li>
+                        <li><a href="">多长时间可以送达？</a></li>
                     </ul>
                 </li>
                 <li class="item-li">配送与支持
@@ -179,7 +238,7 @@
                     </ul>
                 </li>
             </ul>
-        </div> -->
+        </div>
         <div class="line"></div>
 
         <div class="bottom">

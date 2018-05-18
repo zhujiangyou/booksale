@@ -22,9 +22,11 @@ from django.conf import settings
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', book_views.index),
+    path('index', book_views.index),
     path('user/login/', book_views.login),
     path('user/logout/', book_views.user_logout),
     path('search/', book_views.search),
+    path('all/book/', book_views.search),
 
 
 
